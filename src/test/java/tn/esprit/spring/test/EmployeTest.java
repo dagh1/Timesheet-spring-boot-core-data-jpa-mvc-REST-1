@@ -39,6 +39,7 @@ public class EmployeTest {
         System.out.println("before insert");
         Employe employe=new Employe("Aloui","Omar","omar.aloui@esprit.tn",true, Role.INGENIEUR);
         idEmploye=iemployeservice.ajouterEmploye(employe);
+        //test
     }
 
 
@@ -47,7 +48,7 @@ public class EmployeTest {
 
         System.out.println("ajout employe");
         assertTrue(idEmploye>0);
-    };
+    }
 
     @Test
     public void testModifierEmploye() {
@@ -55,7 +56,7 @@ public class EmployeTest {
         System.out.println("modifier employe");
         iemployeservice.mettreAjourEmailByEmployeId("b@b",1);
         //assertTrue(idEmploye>0);
-    };
+    }
 
     @After()
     public  void deleteEmploye(){
