@@ -2,6 +2,8 @@ package tn.esprit.spring.test;
 
 import static org.junit.Assert.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import tn.esprit.spring.config.LoggingAspect;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.repository.MissionRepository;
@@ -20,6 +23,8 @@ import tn.esprit.spring.services.TimesheetServiceImpl;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TimeSheetTest {
+	
+	private static final Logger l = LogManager.getLogger(LoggingAspect.class);
 
 	@Autowired
 	MissionRepository missionRepository;
@@ -38,8 +43,8 @@ public class TimeSheetTest {
 		// Act 
 		dep = entrepriseService.ajouterDepartement(dep1);
 		mis = timesheetService.ajouterMission(mission1);
-		System.out.println(dep1.getId());
-		System.out.println(mis);
+		l.info("id of the departement 1 (dept1) : " + dep1.getId());
+		l.info("id of the mission added : " + mis);
 	}
 	
 	

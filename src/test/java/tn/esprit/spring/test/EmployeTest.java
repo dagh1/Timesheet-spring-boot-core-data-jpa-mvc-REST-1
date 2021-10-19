@@ -54,7 +54,7 @@ public class EmployeTest {
     public void testModifierEmploye() {
 
         System.out.println("modifier employe");
-        iemployeservice.mettreAjourEmailByEmployeId("b@b",1);
+        iemployeservice.mettreAjourEmailByEmployeId("b@b",idEmploye);
         //assertTrue(idEmploye>0);
     }
 
