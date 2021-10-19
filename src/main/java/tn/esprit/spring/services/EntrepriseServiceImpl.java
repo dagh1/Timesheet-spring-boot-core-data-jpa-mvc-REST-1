@@ -3,9 +3,12 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
@@ -15,19 +18,28 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
-
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceImpl.class);
 	@Autowired
     EntrepriseRepository entrepriseRepoistory;
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
 	public int ajouterEntreprise(Entreprise entreprise) {
-		entrepriseRepoistory.save(entreprise);
+		try {
+			entrepriseRepoistory.save(entreprise);
+		} catch (Exception e) {
+			 l.error("create entreprise error.", e.getMessage());
+		} 
+		
 		return entreprise.getId();
 	}
 
 	public int ajouterDepartement(Departement dep) {
+		try {
 		deptRepoistory.save(dep);
+	} catch (Exception e) {
+		 l.error("create Departement error.", e.getMessage());
+	} 
 		return dep.getId();
 	}
 	
@@ -39,19 +51,26 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				//Rappel : Dans une relation oneToMany le mappedBy doit etre du cote one.
 				Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 				Departement depManagedEntity = deptRepoistory.findById(depId).get();
-				
+				try {
 				depManagedEntity.setEntreprise(entrepriseManagedEntity);
 				deptRepoistory.save(depManagedEntity);
-		
+				} catch (Exception e) {
+					 l.error("Departement"+ depManagedEntity.getName()+"cannot be affected to "+entrepriseManagedEntity.getName() , e.getMessage());
+				} 
 	}
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+		Entreprise entrepriseManagedEntity = null;
+		try {
+		 entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+		
+	} catch (Exception e) {
+		 l.error("error while fetching departements of entreprise" , e.getMessage());
+	} 
 		List<String> depNames = new ArrayList<>();
 		for(Departement dep : entrepriseManagedEntity.getDepartements()){
 			depNames.add(dep.getName());
 		}
-		
 		return depNames;
 	}
 
