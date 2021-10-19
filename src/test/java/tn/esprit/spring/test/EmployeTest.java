@@ -38,6 +38,7 @@ public class EmployeTest {
     public void createEmploye(){
         System.out.println("before insert");
         Employe employe=new Employe("Aloui","Omar","omar.aloui@esprit.tn",true, Role.INGENIEUR);
+        l.info("#######################################################################################################");
         idEmploye=iemployeservice.ajouterEmploye(employe);
         //test
     }
@@ -64,13 +65,13 @@ public class EmployeTest {
         iemployeservice.deleteEmployeById(idEmploye);
     }
 
-    @Around("execution(* tn.esprit.spring.services.*.*(..))")
-    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
-        long start = System.currentTimeMillis();
-        Object obj = pjp.proceed();
-        long elapsedTime = System.currentTimeMillis() - start;
-        if(elapsedTime<3000)
-        l.info("Method execution time: " + elapsedTime + " milliseconds.");
-        return obj;
-    }
+//    @Around("execution(* tn.esprit.spring.services.*.*(..))")
+//    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
+//        long start = System.currentTimeMillis();
+//        Object obj = pjp.proceed();
+//        long elapsedTime = System.currentTimeMillis() - start;
+//        if(elapsedTime<3000)
+//        l.info("Method execution time: " + elapsedTime + " milliseconds.");
+//        return obj;
+//    }
 }

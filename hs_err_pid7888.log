@@ -1,0 +1,229 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1681696 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=7888, tid=0x00000000000046e4
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_201-b09) (build 1.8.0_201-b09)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.201-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001e04c800):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=18148, stack(0x000000001eb50000,0x000000001ec50000)]
+
+Stack: [0x000000001eb50000,0x000000001ec50000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:   2083 1583       4       java.net.URLClassLoader$1::run (5 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001e0dc000 JavaThread "Service Thread" daemon [_thread_blocked, id=14040, stack(0x000000001ed50000,0x000000001ee50000)]
+  0x000000001e05c800 JavaThread "C1 CompilerThread3" daemon [_thread_in_vm, id=15272, stack(0x000000001ec50000,0x000000001ed50000)]
+=>0x000000001e04c800 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=18148, stack(0x000000001eb50000,0x000000001ec50000)]
+  0x000000001e047000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=10288, stack(0x000000001ea50000,0x000000001eb50000)]
+  0x000000001e045000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=1068, stack(0x000000001e950000,0x000000001ea50000)]
+  0x000000001e044000 JavaThread "Attach Listener" daemon [_thread_blocked, id=10420, stack(0x000000001e850000,0x000000001e950000)]
+  0x000000001e043800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11128, stack(0x000000001e750000,0x000000001e850000)]
+  0x000000001e031000 JavaThread "Finalizer" daemon [_thread_blocked, id=3688, stack(0x000000001e510000,0x000000001e610000)]
+  0x000000001e030800 JavaThread "Reference Handler" daemon [_thread_blocked, id=3508, stack(0x000000001e410000,0x000000001e510000)]
+  0x0000000002613800 JavaThread "main" [_thread_in_Java, id=10292, stack(0x00000000024f0000,0x00000000025f0000)]
+
+Other Threads:
+  0x000000001c227800 VMThread [stack: 0x000000001df10000,0x000000001e010000] [id=16276]
+  0x000000001e0fe800 WatcherThread [stack: 0x000000001ee50000,0x000000001ef50000] [id=18512]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006c0a00000, size: 4086 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 76288K, used 66100K [0x000000076ae00000, 0x0000000774300000, 0x00000007c0000000)
+  eden space 65536K, 85% used [0x000000076ae00000,0x000000076e49c3b0,0x000000076ee00000)
+  from space 10752K, 94% used [0x000000076ee00000,0x000000076f7f0f20,0x000000076f880000)
+  to   space 10752K, 0% used [0x0000000773880000,0x0000000773880000,0x0000000774300000)
+ ParOldGen       total 175104K, used 16K [0x00000006c0a00000, 0x00000006cb500000, 0x000000076ae00000)
+  object space 175104K, 0% used [0x00000006c0a00000,0x00000006c0a04000,0x00000006cb500000)
+ Metaspace       used 15183K, capacity 15368K, committed 15488K, reserved 1062912K
+  class space    used 1833K, capacity 1908K, committed 1920K, reserved 1048576K
+
+Card table byte_map: [0x0000000011ae0000,0x00000000122e0000] byte_map_base: 0x000000000e4db000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006a544ce0
+ Begin Bits: [0x0000000013040000, 0x0000000017018000)
+ End Bits:   [0x0000000017018000, 0x000000001aff0000)
+
+Polling page: 0x0000000000d30000
+
+CodeCache: size=245760Kb used=7188Kb max_used=7193Kb free=238571Kb
+ bounds [0x0000000002720000, 0x0000000002e30000, 0x0000000011720000]
+ total_blobs=2489 nmethods=2140 adapters=261
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 2.073 Thread 0x000000001e05c800 nmethod 2129 0x0000000002e249d0 code [0x0000000002e24b40, 0x0000000002e24ef0]
+Event: 2.074 Thread 0x000000001e05c800 2130       3       org.eclipse.aether.internal.impl.collect.CachingArtifactTypeRegistry::get (43 bytes)
+Event: 2.074 Thread 0x000000001e05c800 nmethod 2130 0x0000000002e25090 code [0x0000000002e25220, 0x0000000002e25748]
+Event: 2.074 Thread 0x000000001e05c800 2131       3       org.eclipse.sisu.plexus.DefaultPlexusBeans$Itr::next (5 bytes)
+Event: 2.075 Thread 0x000000001e05c800 nmethod 2131 0x0000000002e258d0 code [0x0000000002e25a60, 0x0000000002e25fa8]
+Event: 2.075 Thread 0x000000001e05c800 2132       3       org.eclipse.sisu.plexus.DefaultPlexusBeans$Itr::next (20 bytes)
+Event: 2.075 Thread 0x000000001e05c800 nmethod 2132 0x0000000002e26190 code [0x0000000002e26320, 0x0000000002e26788]
+Event: 2.075 Thread 0x000000001e05c800 2133       3       org.eclipse.sisu.plexus.RealmFilteredBeans$FilteredItr::next (5 bytes)
+Event: 2.075 Thread 0x000000001e05c800 nmethod 2133 0x0000000002e26910 code [0x0000000002e26aa0, 0x0000000002e26e98]
+Event: 2.075 Thread 0x000000001e05c800 2134       3       org.eclipse.sisu.plexus.RealmFilteredBeans$FilteredItr::next (27 bytes)
+
+GC Heap History (2 events):
+Event: 1.242 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 65536K [0x000000076ae00000, 0x0000000770300000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076ae00000,0x000000076ee00000,0x000000076ee00000)
+  from space 10752K, 0% used [0x000000076f880000,0x000000076f880000,0x0000000770300000)
+  to   space 10752K, 0% used [0x000000076ee00000,0x000000076ee00000,0x000000076f880000)
+ ParOldGen       total 175104K, used 0K [0x00000006c0a00000, 0x00000006cb500000, 0x000000076ae00000)
+  object space 175104K, 0% used [0x00000006c0a00000,0x00000006c0a00000,0x00000006cb500000)
+ Metaspace       used 11264K, capacity 11470K, committed 11776K, reserved 1058816K
+  class space    used 1392K, capacity 1477K, committed 1536K, reserved 1048576K
+Event: 1.259 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 10179K [0x000000076ae00000, 0x0000000774300000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076ae00000,0x000000076ae00000,0x000000076ee00000)
+  from space 10752K, 94% used [0x000000076ee00000,0x000000076f7f0f20,0x000000076f880000)
+  to   space 10752K, 0% used [0x0000000773880000,0x0000000773880000,0x0000000774300000)
+ ParOldGen       total 175104K, used 16K [0x00000006c0a00000, 0x00000006cb500000, 0x000000076ae00000)
+  object space 175104K, 0% used [0x00000006c0a00000,0x00000006c0a04000,0x00000006cb500000)
+ Metaspace       used 11264K, capacity 11470K, committed 11776K, reserved 1058816K
+  class space    used 1392K, capacity 1477K, committed 1536K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 1.692 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002b66360 method=java.lang.String.substring(I)Ljava/lang/String; @ 35
+Event: 1.716 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002c650c0 method=org.codehaus.plexus.util.xml.pull.MXParser.nextImpl()I @ 1053
+Event: 1.742 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002ca31d8 method=java.lang.String.trim()Ljava/lang/String; @ 63
+Event: 1.748 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000029cb284 method=sun.nio.cs.UTF_8$Decoder.decodeArrayLoop(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult; @ 84
+Event: 1.769 Thread 0x0000000002613800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0000000002ccb6a8 method=org.apache.maven.model.io.xpp3.MavenXpp3ReaderEx.checkFieldWithDuplicate(Lorg/codehaus/plexus/util/xml/pull/XmlPullParser;Ljava/lang/String;Ljava/lang/String;Ljava/util/
+Event: 1.796 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002aaa87c method=java.lang.String.regionMatches(ZILjava/lang/String;II)Z @ 25
+Event: 1.895 Thread 0x0000000002613800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0000000002d4f9e8 method=org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(Lorg/codehaus/plexus/util/xml/pull/XmlPullParser;Ljava/lang/String;Ljava/lang/String;Ljava/util/Se
+Event: 1.905 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002ca89ec method=org.codehaus.plexus.util.xml.pull.MXParser.nextImpl()I @ 310
+Event: 1.945 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002d7df64 method=org.codehaus.plexus.util.xml.pull.MXParser.nextImpl()I @ 1161
+Event: 2.017 Thread 0x0000000002613800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002dc16f8 method=org.codehaus.plexus.util.xml.pull.MXParser.nextImpl()I @ 972
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf48ab0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf48cb8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf48ec0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf50f90) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf51198) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.571 Thread 0x0000000002613800 Exception <a 'java/lang/NullPointerException'> (0x000000076bf513a0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u201\12322\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 1.606 Thread 0x0000000002613800 Implicit null exception at 0x000000000296b954 to 0x000000000296bd0d
+Event: 1.606 Thread 0x0000000002613800 Implicit null exception at 0x000000000291b196 to 0x000000000291b539
+Event: 1.769 Thread 0x0000000002613800 Implicit null exception at 0x0000000002ccb443 to 0x0000000002ccb68d
+Event: 1.895 Thread 0x0000000002613800 Implicit null exception at 0x0000000002d4f783 to 0x0000000002d4f9cd
+
+Events (10 events):
+Event: 2.061 loading class org/eclipse/aether/util/graph/manager/ClassicDependencyManager$Key
+Event: 2.061 loading class org/eclipse/aether/util/graph/manager/ClassicDependencyManager$Key done
+Event: 2.062 loading class org/eclipse/aether/graph/Dependency$Exclusions$1
+Event: 2.062 loading class org/eclipse/aether/graph/Dependency$Exclusions$1 done
+Event: 2.064 loading class org/eclipse/aether/internal/impl/collect/DataPool$ConstraintKey
+Event: 2.064 loading class org/eclipse/aether/internal/impl/collect/DataPool$ConstraintKey done
+Event: 2.064 loading class org/eclipse/aether/internal/impl/collect/DataPool$Constraint
+Event: 2.064 loading class org/eclipse/aether/internal/impl/collect/DataPool$Constraint done
+Event: 2.065 loading class org/eclipse/aether/internal/impl/collect/DataPool$Constraint$VersionRepo
+Event: 2.065 loading class org/eclipse/aether/internal/impl/collect/DataPool$Constraint$VersionRepo done
+
+
+Dynamic libraries:
+0x00007ff78d8e0000 - 0x00007ff78d917000 	C:\Program Files\Java\jdk1.8.0_201\bin\java.exe
+0x00007ffe3d8d0000 - 0x00007ffe3dac5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe3d580000 - 0x00007ffe3d63e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe3b180000 - 0x00007ffe3b449000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe3c3f0000 - 0x00007ffe3c49c000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe3c040000 - 0x00007ffe3c0de000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe3d7f0000 - 0x00007ffe3d88b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe3d280000 - 0x00007ffe3d3aa000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe3d640000 - 0x00007ffe3d7e1000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe3b630000 - 0x00007ffe3b652000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe3bf80000 - 0x00007ffe3bfab000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe3b520000 - 0x00007ffe3b62b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe3b480000 - 0x00007ffe3b51d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe3b080000 - 0x00007ffe3b180000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe25200000 - 0x00007ffe2549a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffe3cab0000 - 0x00007ffe3cae0000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000006b7c0000 - 0x000000006b891000 	C:\Program Files\Java\jdk1.8.0_201\jre\bin\msvcr100.dll
+0x0000000069d20000 - 0x000000006a5c4000 	C:\Program Files\Java\jdk1.8.0_201\jre\bin\server\jvm.dll
+0x00007ffe3c030000 - 0x00007ffe3c038000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffe2ec40000 - 0x00007ffe2ec67000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe24af0000 - 0x00007ffe24af9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe323b0000 - 0x00007ffe323ba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe3d430000 - 0x00007ffe3d49b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe363c0000 - 0x00007ffe363cf000 	C:\Program Files\Java\jdk1.8.0_201\jre\bin\verify.dll
+0x00007ffe258f0000 - 0x00007ffe25919000 	C:\Program Files\Java\jdk1.8.0_201\jre\bin\java.dll
+0x00007ffe2ee10000 - 0x00007ffe2ee26000 	C:\Program Files\Java\jdk1.8.0_201\jre\bin\zip.dll
+0x00007ffe3cae0000 - 0x00007ffe3d21f000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffe390f0000 - 0x00007ffe39880000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffe3c6f0000 - 0x00007ffe3ca45000 	C:\WINDOWS\System32\combase.dll
+0x00007ffe3aa40000 - 0x00007ffe3aa6c000 	C:\WINDOWS\SYSTEM32\Wldp.dll
+0x00007ffe3c0f0000 - 0x00007ffe3c19d000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ffe3bfd0000 - 0x00007ffe3c025000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffe3af30000 - 0x00007ffe3af4f000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ffe36350000 - 0x00007ffe3635a000 	C:\products\apache-maven-3.8.1-bin\lib\jansi-native\windows64\jansi.dll
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=C:\products\apache-maven-3.8.1-bin\bin\..\bin\m2.conf -Dmaven.home=C:\products\apache-maven-3.8.1-bin\bin\.. -Dlibrary.jansi.path=C:\products\apache-maven-3.8.1-bin\bin\..\lib\jansi-native -Dmaven.multiModuleProjectDirectory=D:\devops\Timesheet-spring-boot-core-data-jpa-mvc-REST-1 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean install -U
+java_class_path (initial): C:\products\apache-maven-3.8.1-bin\bin\..\boot\plexus-classworlds-2.6.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201
+USERNAME=Aloui Omar
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.1202)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16729056k(5050508k free), swap 19801056k(8692k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.201-b09) for windows-amd64 JRE (1.8.0_201-b09), built on Dec 15 2018 18:36:39 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue Oct 19 15:06:51 2021
+timezone: Afr. centrale Ouest
+elapsed time: 2 seconds (0d 0h 0m 2s)
+
