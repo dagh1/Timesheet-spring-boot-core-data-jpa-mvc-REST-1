@@ -13,20 +13,20 @@ import org.apache.logging.log4j.Logger;
 @Component
 @Aspect
 public class LoggingAspect {
-//    private static final Logger l = LogManager.getLogger(LoggingAspect.class);
-//    @Before("execution(* tn.esprit.spring.services.EmployeServiceImpl.*(..))")
-//    public void logMethodEntry(JoinPoint joinPoint) {
-//        String name = joinPoint.getSignature().getName();
-//       // l.info("In method " + name + " : ");
-//    }
-//
-//    @Around("execution(* tn.esprit.spring.services.*.*(..))")
-//    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
-//        long start = System.currentTimeMillis();
-//        Object obj = pjp.proceed();
-//        long elapsedTime = System.currentTimeMillis() - start;
-//        if(elapsedTime<3000)
-//           // l.info("Method execution time: " + elapsedTime + " milliseconds.");
-//        return obj;
-//    }
+    private static final Logger l = LogManager.getLogger(LoggingAspect.class);
+    @Before("execution(* tn.esprit.spring.services.EmployeServiceImpl.*(..))")
+    public void logMethodEntry(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        l.info("In method " + name + " : ");
+    }
+
+    @Around("execution(* tn.esprit.spring.services.*.*(..))")
+    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
+        long start = System.currentTimeMillis();
+        Object obj = pjp.proceed();
+        long elapsedTime = System.currentTimeMillis() - start;
+        if(elapsedTime<3000)
+            l.info("Method execution time: " + elapsedTime + " milliseconds.");
+        return obj;
+    }
 }
