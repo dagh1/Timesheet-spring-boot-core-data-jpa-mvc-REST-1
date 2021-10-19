@@ -2,6 +2,7 @@ package tn.esprit.spring.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +40,21 @@ public class TimeSheetTest {
 		mis = timesheetService.ajouterMission(mission1);
 		System.out.println(dep1.getId());
 		System.out.println(mis);
-	} 
+	}
+	
+	
+	@Test
+	public void affecterMissionADepTest(){
+		// Assert
+		assertNotNull("departement non affecter",timesheetService.affecterMissionADepartement(mis,dep));
+	}
+	
+	@After
+	public void deleteData(){
+		System.out.println("here2");
+		// delete data
+		timesheetService.deleteMissionById(mis);
+		entrepriseService.deleteDepartementById(dep);
+	}
 
 }

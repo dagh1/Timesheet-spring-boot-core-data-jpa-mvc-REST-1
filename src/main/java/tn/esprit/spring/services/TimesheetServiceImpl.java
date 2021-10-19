@@ -37,12 +37,12 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		return mission.getId();
 	}
     
-	public void affecterMissionADepartement(int missionId, int depId) {
+	public Mission affecterMissionADepartement(int missionId, int depId) {
 		Mission mission = missionRepository.findById(missionId).get();
 		Departement dep = deptRepoistory.findById(depId).get();
 		mission.setDepartement(dep);
 		missionRepository.save(mission);
-		
+		return mission;
 	}
 
 	public void ajouterTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin) {
@@ -91,7 +91,13 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		System.out.println("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		
 	}
-
+	
+	
+	@Transactional
+	public void deleteMissionById(int missionId) {
+		missionRepository.delete(missionRepository.findById(missionId).get());	
+	}
+	
 	
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
