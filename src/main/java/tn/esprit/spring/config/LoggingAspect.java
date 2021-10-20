@@ -16,8 +16,8 @@ public class LoggingAspect {
     private static final Logger l = LogManager.getLogger(LoggingAspect.class);
     @Before("execution(* tn.esprit.spring.services.EmployeServiceImpl.*(..))")
     public void logMethodEntry(JoinPoint joinPoint) {
-        String name = joinPoint.getSignature().getName();
-       // l.info("In method " + name + " : ");s
+      
+      
     }
 
     @Around("execution(* tn.esprit.spring.services.*.*(..))")
