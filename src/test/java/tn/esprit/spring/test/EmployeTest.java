@@ -1,28 +1,24 @@
+
 package tn.esprit.spring.test;
 
 import org.apache.logging.log4j.LogManager;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.config.LoggingAspect;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
 
-import tn.esprit.spring.services.EmployeServiceImpl;
 import tn.esprit.spring.services.IEmployeService;
 
 import static org.junit.Assert.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @RunWith(SpringRunner.class)
@@ -36,8 +32,8 @@ public class EmployeTest {
 
     @Before
     public void createEmploye(){
-        System.out.println("before insert");
-        Employe employe=new Employe("Aloui","Omar","omar.aloui@esprit.tn",true, Role.INGENIEUR);
+        l.info("insert employer :");
+        Employe employe=new Employe("Missaoui","Khalil","Khalil.Missaoui@esprit.tn",true, Role.INGENIEUR);
         idEmploye=iemployeservice.ajouterEmploye(employe);
         //test
     }
@@ -52,25 +48,17 @@ public class EmployeTest {
 
     @Test
     public void testModifierEmploye() {
+        l.info("Modifier employer");
 
-        System.out.println("modifier employe");
-        iemployeservice.mettreAjourEmailByEmployeId("b@b",1);
+        iemployeservice.mettreAjourEmailByEmployeId("khalil@missaoui1",1);
         //assertTrue(idEmploye>0);
     }
 
     @After()
     public  void deleteEmploye(){
-        System.out.println("Delete after");
+        l.info("Delete after :");
         iemployeservice.deleteEmployeById(idEmploye);
     }
 
-    @Around("execution(* tn.esprit.spring.services.*.*(..))")
-    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
-        long start = System.currentTimeMillis();
-        Object obj = pjp.proceed();
-        long elapsedTime = System.currentTimeMillis() - start;
-        if(elapsedTime<3000)
-        l.info("Method execution time: " + elapsedTime + " milliseconds.");
-        return obj;
-    }
+
 }
