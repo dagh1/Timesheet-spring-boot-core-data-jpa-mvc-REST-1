@@ -38,7 +38,7 @@ public class EmployeTest {
     public void createEmploye(){
         System.out.println("before insert");
         Employe employe=new Employe("Aloui","Omar","omar.aloui@esprit.tn",true, Role.INGENIEUR);
-        l.info("#######################################################################################################");
+        l.info("testing adding employe");
         idEmploye=iemployeservice.ajouterEmploye(employe);
         //test
     }
