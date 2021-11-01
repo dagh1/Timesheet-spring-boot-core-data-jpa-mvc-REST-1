@@ -59,11 +59,15 @@ public class EmployeTest {
         //assertTrue(idEmploye>0);
     }
 
+    
+
     @After()
     public  void deleteEmploye(){
         System.out.println("Delete after");
         iemployeservice.deleteEmployeById(idEmploye);
     }
+
+
 
 //    @Around("execution(* tn.esprit.spring.services.*.*(..))")
 //    public Object profile(ProceedingJoinPoint pjp) throws Throwable {
