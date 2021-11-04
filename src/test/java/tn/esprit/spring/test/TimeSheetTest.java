@@ -36,7 +36,7 @@ public class TimeSheetTest {
 	
 	@Before
 	public void affecterParametre(){
-		System.out.println("here");
+		
 		// Arrange	
 		Departement dep1 = new Departement("dev");
 		Mission mission1 = new Mission("mission1");

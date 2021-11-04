@@ -3,6 +3,7 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,16 +39,19 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Transactional
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
-		Employe employe = employeRepository.findById(employeId).get();
-		employe.setEmail(email);
-		employeRepository.save(employe);
-
+		
+		Optional<Employe> optionalEmploye = employeRepository.findById(employeId);
+		if(optionalEmploye.isPresent()){
+			Employe employe= optionalEmploye.get();
+		    employe.setEmail(email);
+		    employeRepository.save(employe);
+		}
 	}
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
-		Departement depManagedEntity = deptRepoistory.findById(depId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+		Departement depManagedEntity = deptRepoistory.findById(depId).orElse(new Departement());
+		Employe employeManagedEntity = employeRepository.findById(employeId).orElse(new Employe());
 
 		if(depManagedEntity.getEmployes() == null){
 
