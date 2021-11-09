@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class TimesheetSpringBootCoreDataJpaMvcRest1Application {
 
 	public static void main(String[] args) {
-		// finqq
+		// fiaaa
 		SpringApplication.run(TimesheetSpringBootCoreDataJpaMvcRest1Application.class, args);
 	}
 
