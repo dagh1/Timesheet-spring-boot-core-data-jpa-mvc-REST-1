@@ -3552,3 +3552,31 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2021-10-22 11:35:37.851  INFO 3364 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-10-22 11:35:37.859  INFO 3364 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-10-22 11:35:37.882  INFO 3364 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 22:52:56.420  INFO 7956 --- [main] tn.esprit.spring.test.EntrepriseTest     : Starting EntrepriseTest on DESKTOP-FQV0OGR with PID 7956 (started by med ali in C:\Users\med ali\Desktop\5 eme\MS\Timesheet-spring-boot-core-data-jpa-mvc-REST-1)
+2021-11-09 22:52:56.425  INFO 7956 --- [main] tn.esprit.spring.test.EntrepriseTest     : No active profile set, falling back to default profiles: default
+2021-11-09 22:53:01.926  INFO 7956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-09 22:53:02.309  INFO 7956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 338ms. Found 6 repository interfaces.
+2021-11-09 22:53:04.441  INFO 7956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7a0ac3d2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-09 22:53:06.201  INFO 7956 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 22:53:06.898  INFO 7956 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 22:53:07.186  INFO 7956 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-09 22:53:07.577  INFO 7956 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2021-11-09 22:53:07.585  INFO 7956 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-11-09 22:53:08.174  INFO 7956 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-11-09 22:53:09.338  INFO 7956 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-09 22:53:13.034  INFO 7956 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-09 22:53:14.424  INFO 7956 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-09 22:53:17.601  INFO 7956 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-09 22:53:17.848  WARN 7956 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-09 22:53:19.947  INFO 7956 --- [main] tn.esprit.spring.test.EntrepriseTest     : Started EntrepriseTest in 25.497 seconds (JVM running for 30.253)
+2021-11-09 22:53:21.187  INFO 7956 --- [main] tn.esprit.spring.config.LoggingAspect    : Method execution time: 859 milliseconds.
+2021-11-09 22:53:21.289  INFO 7956 --- [main] tn.esprit.spring.config.LoggingAspect    : Method execution time: 100 milliseconds.
+2021-11-09 22:53:21.314  INFO 7956 --- [main] tn.esprit.spring.config.LoggingAspect    : Method execution time: 12 milliseconds.
+2021-11-09 22:53:21.503  INFO 7956 --- [main] tn.esprit.spring.config.LoggingAspect    : Method execution time: 40 milliseconds.
+2021-11-09 22:53:21.512  INFO 7956 --- [main] tn.esprit.spring.config.LoggingAspect    : Method execution time: 7 milliseconds.
+2021-11-09 22:53:22.116  INFO 7956 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-09 22:53:22.124  INFO 7956 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-09 22:53:22.150  INFO 7956 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 22:53:22.610  INFO 7956 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
